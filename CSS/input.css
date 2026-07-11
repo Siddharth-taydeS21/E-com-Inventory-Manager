@@ -1,0 +1,49 @@
+/* ======================== GOOGLE FONTS LINK ======================= */
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Poppins&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+    --font-google-sans: "Google Sans", sans-serif;
+}
+
+@layer base {
+
+    /* =============================== BASE CLASSES ============================== */
+    * {
+        @apply m-0 p-0 box-border font-google-sans;
+    }
+
+    html {
+        @apply scroll-smooth;
+    }
+
+    header {
+        @apply w-full h-14 fixed top-0 left-0 shadow-sm flex items-center bg-white z-90;
+    }
+
+    nav {
+        @apply w-full max-w-7xl p-4 mx-auto flex justify-end items-center gap-4 sm:gap-8;
+    }
+
+    main {
+        @apply w-full;
+    }
+
+    section,
+    footer {
+        @apply w-full py-20;
+    }
+
+    img {
+        @apply w-full h-full object-cover object-center;
+    }
+
+}
+
+@layer utilities {
+    /* =================================== REUSABLE CLASSES ======================================== */
+    .container {
+        @apply w-full max-w-7xl p-4 mx-auto;
+    }
+}
