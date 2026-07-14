@@ -1,4 +1,7 @@
+import { fetchData } from "./APIworks.js";
 
+// ================ LOGIC STARTER API CALL =====================
+fetchData()
 
 // ============================= NAV LIST OPEN & CLOSE LOGIC =========================================
 const nav = document.querySelector('nav');
@@ -15,4 +18,31 @@ window.addEventListener('click', (e) => {
         return;
     }
     return;
+})
+
+// ========================================= CATEGORY FEATURE LOGIC ================================================
+const allProducts = document.getElementById('allProducts');
+const electronicsCategory = document.getElementById('electronics');
+const fashionCategory = document.getElementById('fashion');
+const beautyCategory = document.getElementById('beauty');
+const productsCardsContainer = document.querySelector('.products_container');
+
+allProducts.addEventListener('click', () => {
+    productsCardsContainer.innerHTML = '';
+    fetchData('https://6a50c67ec576c846dcb9db29.mockapi.io/SiddsOwnRestApi/products');
+})
+
+fashionCategory.addEventListener('click', () => {
+    productsCardsContainer.innerHTML = '';
+    fetchData('https://6a50c67ec576c846dcb9db29.mockapi.io/SiddsOwnRestApi/products/?category=Fashion');
+})
+
+beautyCategory.addEventListener('click', () => {
+    productsCardsContainer.innerHTML = '';
+    fetchData('https://6a50c67ec576c846dcb9db29.mockapi.io/SiddsOwnRestApi/products/?category=Beauty');
+})
+
+electronicsCategory.addEventListener('click', () => {
+    productsCardsContainer.innerHTML = '';
+    fetchData('https://6a50c67ec576c846dcb9db29.mockapi.io/SiddsOwnRestApi/products/?category=Electronics');
 })
