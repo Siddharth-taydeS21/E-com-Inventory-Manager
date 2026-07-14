@@ -1,21 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- ======================= FAVICON =========================== -->
-        <link rel="shortcut icon" href="/assets/Inventory-manager-project-favicon-removebg-preview.png" type="image/x-icon">
-    
-        <!-- ======================= REMIX ICON CDN LINK =========================== -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
-    
-        <!-- ======================= TAILWIND CSS =========================== -->
-        <link rel="stylesheet" href="./CSS/output.css">
-    
-        <title>E-com Inventory Manager | Made By Siddharth</title>
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ======================= FAVICON =========================== -->
+    <link rel="shortcut icon" href="/assets/Inventory-manager-logo-Fvicon.png" type="image/x-icon">
+
+    <!-- ======================= REMIX ICON CDN LINK =========================== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+
+    <!-- ======================= TAILWIND CSS =========================== -->
+    <link rel="stylesheet" href="./CSS/output.css">
+
+    <title>E-com Inventory Manager | Made By Siddharth</title>
+</head>
+
 <body>
+    <header>
+        <nav>
+            <a class="logo size-[40px] overflow-hidden transition-all duration-200 hover:-translate-y-1" href="#">
+                <img src="/assets/Inventory-manager-logo-Fvicon.png" alt="logo">
+            </a>
+
+
+            <div
+                class="nav_Menu max-md:absolute max-md:top-0 max-md:right-[-120%] max-md:p-8 max-md:pt-14 max-md:bg-white max-md:shadow-sm max-md:h-lvh max-md:w-[300px] max-md:flex max-md:flex-col max-md:justify-start transition-right duration-500">
+                <ul class="max-md:grid max-md:gap-y-8 max-md:mt-4 md:flex md:items-center gap-8">
+                    <li class="nav_links">
+                        <a href="#products">All products</a>
+                    </li>
+
+                    <li class="nav_links">
+                        <a href="">Electronics</a>
+                    </li>
+
+                    <li class="nav_links">
+                        <a href="">Fashion</a>
+                    </li>
+
+                    <li class="nav_links">
+                        <a href="">Beauty</a>
+                    </li>
+
+                    <li class="nav_links" id="add_product_btn">
+                        <a href="" class="flex items-center gap-1">Add Products
+                            <i class="ri-arrow-right-line"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <button id="nav_list_close" class="absolute top-6 right-6 md:hidden">
+                    <i class="ri-close-line text-2xl"></i>
+                </button>
+            </div>
+
+            <button id="nav_list_open" class="md:hidden">
+                <i class="ri-menu-line font-bold text-2xl"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container mt-8 md:mt-12 lg:mt-16 grid gap-y-8 lg:grid-cols-2">
+                <div class="hero_content flex flex-col gap-6 justify-center">
+                    <div>
+                        <p class="text-xl font-bold">The Ultimate</p>
+                        <h1 class="text-4xl md:text-5xl font-extrabold">E-com Products</h1>
+                        <h1
+                            class="text-4xl pb-3 md:text-5xl font-extrabold  bg-linear-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+                            Inventory Manager</h1>
+                    </div>
+                    <div>
+                        <h1 class="text-lg text-gray-600 sm:max-w-[400px] md:max-w-[500px] lg:max-w-[400px]">Easily
+                            manage products with advanced search, category filtering, and full CRUD
+                            functionality—all within a clean, responsive dashboard.</h1>
+                    </div>
+                </div>
+
+                <div class="hero_images_grid w-full grid grid-cols-2 max-xs:gap-2 xs:gap-4">
+                    <div class="col1 w-full h-[55vh] sm:h-[65vh] lg:h-[55vh] relative">
+                        <div class="w-full h-full bg-black">
+                            <img src="/assets/electronics-product-hero-image.jpg" alt="image"
+                                class="mask-b-from-20% mask-b-to-100%">
+                        </div>
+                        <h1
+                            class="absolute top-[70%] left-[50%] translate-y-[-50%] translate-x-[-50%] text-2xl font-extrabold text-white">
+                            Top Electronics</h1>
+                    </div>
+                    <div class="col2 w-full h-[55vh] sm:h-[65vh] lg:h-[55vh] grid max-xs:gap-2 xs:gap-4 relative">
+                        <div class="w-full bg-black relative h-full overflow-hidden">
+                            <img src="/assets/fashion-hero-image.jpg" alt="image"
+                                class="mask-b-from-20% mask-b-to-100%">
+                            <h1
+                                class="absolute top-[60%] left-[50%] translate-y-[-50%] translate-x-[-50%] text-2xl font-extrabold text-white">
+                                Top <br> Fashion</h1>
+                        </div>
+                        <div class="w-full h-full overflow-hidden bg-black relative">
+                            <img src="/public/assets/beauty-products-hero-image.jpg" alt="image"
+                                class="mask-b-from-20% mask-b-to-100%">
+                            <h1
+                                class="absolute top-[60%] left-[50%] translate-y-[-50%] translate-x-[-50%] text-2xl font-extrabold text-white">
+                                Top <br> Beauty</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="px-4 w-full">
+            <div class="border border-dashed border-gray-300 max-w-7xl mx-auto"></div>
+        </div>
+
+        <section id="products">
+            <div class="container grid gap-y-10">
+                <div class="section_title text-xl md:text-2xl font-semibold">
+                    <div class="category_details">
+                        <span id="category">All Products </span>
+                        <span> | Total</span>
+                        <span id="product_count">50</span>
+                    </div>
+                </div>
+
+                <div class="products_container">
+                    <!-- =================================== PRODUCT CARD UI TEMPLATE ================================== -->
+                    <template id="product_card_template">
+                        <article class="product_card">
+                            <div class="product_img_wrapper">
+                                <!-- image here -->
+                            </div>
+
+                            <div class="product_content">
+                                <h1 class="product_title">I Phone 10 pro</h1>
+                                <p class="product_brand">Apple</p>
+
+                                <h1 class="product_price">$1,599</h1>
+                                <div class="discount">
+                                    <p class="discounted_price">$2,599</p>
+                                    <p class="dicsounte_percentage"><span>20</span>% off</p>
+                                </div>
+                                <div class="ratings">
+                                    <h1 class="ratings_numbers">4.8</h1>
+                                    <div class="rating_stars">
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-half-line"></i>
+                                    </div>
+                                </div>
+                                <small class="ratings_count">(2563) Ratings</small>
+
+                                <div class="delivery_details">
+                                    <h1>Can be Delivered in</h1>
+                                    <p>
+                                        <span class="delivery_time">6 days</span>
+                                        <i class="ri-truck-fill"></i>
+                                    </p>
+                                </div>
+
+                                <div class="line-break-div"></div>
+
+                                <h1 class="Change_text">Make Changes in this Product</h1>
+                                <div class="buttons">
+                                    <button class="edit_product_btn" data-id-edit="">
+                                        Edit
+                                        <i class="ri-pencil-fill"></i>
+                                    </button>
+                                    <button class="delete_product_btn" data-id-delete="">
+                                        Delete
+                                        <i class="ri-delete-bin-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                    </template>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <footer class="footer w-full p-8 grid gap-10 bg-gray-100">
+        <div class="container grid gap-y-12 justify-center sm:grid-cols-[470px] md:grid-cols-2">
+            <div class="footer_data">
+                <div class="footer_info grid gap-4 mb-4">
+                    <a href="#" class="logo  text-black text-xl font-semibold md:text-2xl flex gap-2 items-center"
+                        id="logo">
+                        <div class="size-[40px]">
+                            <img src="/assets/Inventory-manager-logo-Fvicon.png" alt="logo">
+                        </div>
+                        <h1
+                            class="text-2xl font-extrabold  bg-linear-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+                            Inventory Manager</h1>
+                    </a>
+
+                    <p class="footer_description">
+                        A clean and responsive solution to manage <br> your products and Inventory ..
+                    </p>
+                </div>
+
+                <div class="footer_socials flex gap-x-3">
+                    <a href="https://www.linkedin.com/in/siddharth-tayde-7a9547318/" target="_blank"
+                        class="social_link">
+                        <i class="ri-linkedin-box-fill"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com/siddhartxthetic/" target="_blank" class="social_link">
+                        <i class="ri-instagram-fill"></i>
+                    </a>
+
+                    <a href="https://x.com/SiddharthS21" target="_blank" class="social_link">
+                        <i class="ri-twitter-x-line"></i>
+                    </a>
+
+                    <a href="https://github.com/Siddharth-taydeS21" target="_blank" class="social_link">
+                        <i class="ri-github-fill"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer_content grid gap-12 md:justify-end">
+                <div class="footer_newsLatter xl:w-[350px] text-center">
+                    <h3 class="footer_title text-2xl font-semibold mb-2">Stay Connected</h3>
+
+                    <p class="transition-colors duration-300 text-sm">
+                        Questions or feedback? we'd <br> love to hear from you.
+                    </p>
+
+
+                    <form action=""
+                        class="footer_form mt-8 bg-white w-full flex p-3 rounded-md shadow-sm xs:w-[300px] xl:w-[350px] transition-shadow duration-200 hover:shadow-md">
+                        <input type="email"
+                            class="footer_input w-full bg-transparent pl-2 text-title-color focus:outline-none focus:ring-0"
+                            placeholder="Email address">
+
+                        <button
+                            class="footer_button size-[35px] rounded-md border border-gray-200 text-xl font-bold shadow-sm transition-colors cursor-pointer">
+                            <i class="ri-arrow-right-s-line"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <hr class="text-gray-400">
+
+        <span class="text-sm text-gray-500 text-center ">© 2026 All rights reserved | Project developed by <a
+                href="https://www.linkedin.com/in/siddharth-tayde-7a9547318/" target="_blank"
+                class="transition-colors hover:text-[#65DCD5] duration-200">
+                Siddharth
+            </a></span>
+    </footer>
 
     <script type="module" src="./JS/main.js"></script>
 </body>
+
 </html>
