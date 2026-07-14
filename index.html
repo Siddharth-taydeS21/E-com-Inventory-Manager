@@ -28,19 +28,19 @@
                 class="nav_Menu max-md:absolute max-md:top-0 max-md:right-[-120%] max-md:p-8 max-md:pt-14 max-md:bg-white max-md:shadow-sm max-md:h-lvh max-md:w-[300px] max-md:flex max-md:flex-col max-md:justify-start transition-right duration-500">
                 <ul class="max-md:grid max-md:gap-y-8 max-md:mt-4 md:flex md:items-center gap-8">
                     <li class="nav_links">
-                        <a href="#products">All products</a>
+                        <a href="#products" id="allProducts">All products</a>
                     </li>
 
                     <li class="nav_links">
-                        <a href="">Electronics</a>
+                        <a href="#products" id="electronics">Electronics</a>
                     </li>
 
                     <li class="nav_links">
-                        <a href="">Fashion</a>
+                        <a href="#products" id="fashion">Fashion</a>
                     </li>
 
                     <li class="nav_links">
-                        <a href="">Beauty</a>
+                        <a href="#products" id="beauty">Beauty</a>
                     </li>
 
                     <li class="nav_links" id="add_product_btn">
@@ -98,7 +98,7 @@
                                 Top <br> Fashion</h1>
                         </div>
                         <div class="w-full h-full overflow-hidden bg-black relative">
-                            <img src="/public/assets/beauty-products-hero-image.jpg" alt="image"
+                            <img src="/assets/beauty-products-hero-image.jpg" alt="image"
                                 class="mask-b-from-20% mask-b-to-100%">
                             <h1
                                 class="absolute top-[60%] left-[50%] translate-y-[-50%] translate-x-[-50%] text-2xl font-extrabold text-white">
@@ -109,7 +109,7 @@
             </div>
         </section>
 
-        <div class="px-4 w-full">
+        <div id="lineBreak" class="px-4 w-full">
             <div class="border border-dashed border-gray-300 max-w-7xl mx-auto"></div>
         </div>
 
@@ -119,7 +119,7 @@
                     <div class="category_details">
                         <span id="category">All Products </span>
                         <span> | Total</span>
-                        <span id="product_count">50</span>
+                        <span id="product_count">...</span>
                     </div>
                 </div>
 
@@ -129,6 +129,7 @@
                         <article class="product_card">
                             <div class="product_img_wrapper">
                                 <!-- image here -->
+                                <img class="product_image" src="" alt="image">
                             </div>
 
                             <div class="product_content">
@@ -138,7 +139,7 @@
                                 <h1 class="product_price">$1,599</h1>
                                 <div class="discount">
                                     <p class="discounted_price">$2,599</p>
-                                    <p class="dicsounte_percentage"><span>20</span>% off</p>
+                                    <p><span class="discounted_percentage">20</span></p>
                                 </div>
                                 <div class="ratings">
                                     <h1 class="ratings_numbers">4.8</h1>
@@ -175,6 +176,28 @@
                                 </div>
                             </div>
                         </article>
+                    </template>
+
+                    <!-- =================================== LOADING SPINNER TEMPLATE ================================== -->
+                    <template id="loading_spinner">
+                        <div
+                        class="spinner size-[25px] border-3 border-gray-100 border-t-gray-300 border-l-gray-300 rounded-full animate-spin">
+                    </div>
+                    </template>
+
+                    <template id="loading_product_card_template">
+                        <div id="Loading_product_card"
+                            class="w-full overflow-hidden rounded-xl p-2 bg-gray-50 border border-gray-200">
+                            <div class="image_container w-full aspect-square bg-gray-300 rounded-xl animate-pulse">
+
+                            </div>
+
+                            <div class="text_lines line-1"></div>
+                            <div class="text_lines line-2"></div>
+                            <div class="text_lines line-3"></div>
+                            <div class="text_lines line-4"></div>
+                            <div class="text_lines line-5"></div>
+                        </div>
                     </template>
                 </div>
             </div>
