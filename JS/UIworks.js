@@ -5,10 +5,11 @@ const productCardTemplate = document.getElementById('product_card_template');
 const productsCardsContainer = document.querySelector('.products_container');
 
 const renderData = (products) => {
-
+    
     if(products.length === 50){
         document.getElementById('category').textContent = 'All Products'
     }else{
+        // if (products.length === 0) return;
         document.getElementById('category').textContent = `${products[0].category} Products`
     }
     const productsLength = products.length;

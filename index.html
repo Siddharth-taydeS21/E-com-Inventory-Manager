@@ -25,7 +25,7 @@
 
 
             <div
-                class="nav_Menu max-md:absolute max-md:top-0 max-md:right-[-120%] max-md:p-8 max-md:pt-14 max-md:bg-white max-md:shadow-sm max-md:h-lvh max-md:w-[300px] max-md:flex max-md:flex-col max-md:justify-start transition-right duration-500">
+                class="nav_Menu max-md:absolute max-md:top-0 max-md:right-[-120%] max-md:p-8 max-md:pt-14 max-md:bg-white max-md:shadow-sm max-md:h-lvh max-md:w-[300px] max-md:flex max-md:flex-col max-md:justify-start transition-all duration-500">
                 <ul class="max-md:grid max-md:gap-y-8 max-md:mt-4 md:flex md:items-center gap-8">
                     <li class="nav_links">
                         <a href="#products" id="allProducts">All products</a>
@@ -115,11 +115,21 @@
 
         <section id="products">
             <div class="container grid gap-y-10">
-                <div class="section_title text-xl md:text-2xl font-semibold">
+                <div
+                    class="section_title flex flex-col sm:flex-row gap-4 sm:justify-between sm:items-center text-xl md:text-2xl font-semibold">
                     <div class="category_details">
                         <span id="category">All Products </span>
                         <span> | Total</span>
                         <span id="product_count">...</span>
+                    </div>
+
+                    <div class="searchBar">
+                        <label for="search-input"
+                            class="search-input-lable flex items-center w-full sm:w-[350px] gap-2 p-2 rounded border border-gray-200 shadow-sm transition-shadow duration-300 hover:shadow-md">
+                            <i class="ri-search-2-line"></i>
+                            <input type="text" id="search-input" placeholder="Search products"
+                                class="focus:outline-none focus:ring-0">
+                        </label>
                     </div>
                 </div>
 
@@ -181,10 +191,11 @@
                     <!-- =================================== LOADING SPINNER TEMPLATE ================================== -->
                     <template id="loading_spinner">
                         <div
-                        class="spinner size-[25px] border-3 border-gray-100 border-t-gray-300 border-l-gray-300 rounded-full animate-spin">
-                    </div>
+                            class="spinner size-[25px] border-3 border-gray-100 border-t-gray-300 border-l-gray-300 rounded-full animate-spin">
+                        </div>
                     </template>
 
+                    <!-- =================================== LOADING PRODUCT CARD TEMPLATE ================================== -->
                     <template id="loading_product_card_template">
                         <div id="Loading_product_card"
                             class="w-full overflow-hidden rounded-xl p-2 bg-gray-50 border border-gray-200">
@@ -199,7 +210,24 @@
                             <div class="text_lines line-5"></div>
                         </div>
                     </template>
+
                 </div>
+
+                <!-- =================================== RESULTS NOT FOUND UI TEMPLATE ================================== -->
+                <template id="not_found_template">
+                    <div id="error"
+                        class="invalid_error_card w-full my-35 grid justify-center items-center gap-4 text-center">
+                        <div
+                            class="error_logo_wrapper size-[80px] flex justify-center items-center rounded-full shadow-sm border border-gray-200 justify-self-center">
+                            <i class="ri-file-unknow-line text-3xl text-gray-500"></i>
+                        </div>
+                        <div class="error_massage w-full grid justify-center text-cente">
+                            <h1 class="text-lg text-gray-500 font-semibold">Oops ! No results found for '<span class="keyWord"></span>'</h1>
+                            <small class="text-gray-400">Please make sure to use correct spelling</small>
+                        </div>
+                    </div>
+                </template>
+
             </div>
         </section>
     </main>

@@ -27,7 +27,7 @@
     }
 
     nav {
-        @apply w-full max-w-7xl p-4 mx-auto flex justify-between items-center gap-4 sm:gap-8 relative;
+        @apply w-full max-w-7xl max-xs:p-1 xs:p-4 mx-auto flex justify-between items-center gap-4 sm:gap-8 relative;
     }
 
     main {
@@ -56,6 +56,12 @@
         @apply text-lg font-medium transition-colors duration-200 hover:text-primary;
     }
 
+    .active{
+        @apply text-primary relative md:after:content-[''] md:after:absolute md:after:bottom-[-25px] md:after:left-0 focus:after:left-[50%] md:after:bg-primary md:after:h-[4px] md:after:w-full focus:after:w-0 md:after:rounded md:after:transition-all md:after:duration-500;
+    }
+
+    
+
     .nav_links:last-of-type a{
         @apply bg-gray-700 text-white p-[.5rem_1.3rem] w-fit rounded-3xl transition-all duration-200 hover:-translate-y-1 hover:bg-gray-600;
     }
@@ -74,7 +80,7 @@
     }
 
     .product_img_wrapper{
-        @apply w-full aspect-square overflow-hidden bg-red-200
+        @apply w-full aspect-square overflow-hidden bg-white;
     }
 
     .product_content{
@@ -101,7 +107,7 @@
         @apply line-through;
     }
 
-    .dicsounte_percentage{
+    .discounted_percentage{
         @apply text-sm bg-primary px-3 rounded-xl;
     }
 
@@ -153,6 +159,8 @@
         @apply bg-red-400 hover:shadow-md shadow-red-200;
     }
 
+    /* =================================== LOADING CARDS REUSABLE CLASSES ======================================== */
+
     .text_lines{
         @apply h-7 rounded bg-gray-200 my-2 animate-pulse;
     }
@@ -175,6 +183,18 @@
 
     .line-5{
         @apply mt-4 h-3 w-[90%];
+    }
+
+    .search-input-lable > i{
+        @apply text-gray-400;
+    }
+
+    #search-input, #search-input::placeholder{
+        @apply text-lg font-light text-gray-400;
+    }
+
+    #search-input{
+        @apply text-black;
     }
 
     /* =================================== FOOTER SECTION REUSABLE CLASSES ======================================== */

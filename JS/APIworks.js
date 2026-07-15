@@ -23,6 +23,10 @@ const fetchData =  async (url) => {
 
         if (res.ok) {
             const data = await res.json();
+            state.allProducts = [];
+            data.forEach(el => {
+                state.allProducts.push(el);
+            });
             return data;
         }
 
