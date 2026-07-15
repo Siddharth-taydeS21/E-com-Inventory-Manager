@@ -1,5 +1,5 @@
 export { fetchData };
-import { isUiLoading, renderData } from "./UIworks.js";
+import { isUiLoading } from "./utils";
 import { state } from "./controller.js";
 
 const fetchData =  async (url) => {
@@ -23,7 +23,7 @@ const fetchData =  async (url) => {
 
         if (res.ok) {
             const data = await res.json();
-            renderData(data);
+            return data;
         }
 
         throw new Error('Something went wrong while fetching the data in Fetch data function');
