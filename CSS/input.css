@@ -18,8 +18,12 @@
         @apply m-0 p-0 box-border font-google-sans;
     }
 
+    body {
+        @apply relative;
+    }
+
     html {
-        @apply scroll-smooth scroll-pt-20;
+        @apply scroll-smooth scroll-pt-30;
     }
 
     header {
@@ -42,64 +46,64 @@
     img {
         @apply w-full h-full object-cover object-center;
     }
-
 }
 
 @layer utilities {
+
     /* =================================== REUSABLE CLASSES ======================================== */
     .container {
         @apply w-full max-w-7xl max-xs:p-1 xs:p-4 mx-auto;
     }
 
     /* =================================== HEADER/NAV SECTION REUSABLE CLASSES ======================================== */
-    .nav_links a{
+    .nav_links a {
         @apply text-lg font-medium transition-colors duration-200 hover:text-primary;
     }
 
-    .active{
+    .active {
         @apply text-primary relative md:after:content-[''] md:after:absolute md:after:bottom-[-25px] md:after:left-0 focus:after:left-[50%] md:after:bg-primary md:after:h-[4px] md:after:w-full focus:after:w-0 md:after:rounded md:after:transition-all md:after:duration-500;
     }
 
-    
 
-    .nav_links:last-of-type a{
+
+    .nav_links:last-of-type a {
         @apply bg-gray-700 text-white p-[.5rem_1.3rem] w-fit rounded-3xl transition-all duration-200 hover:-translate-y-1 hover:bg-gray-600;
     }
 
     /* =================================== PRODUCTS SECTION REUSABLE CLASSES ======================================== */
-    .category_details{
+    .category_details {
         @apply flex gap-1 items-center;
     }
 
-    .products_container{
+    .products_container {
         @apply grid gap-2 xs:gap-4 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
     }
 
-    .product_card{
+    .product_card {
         @apply grid gap-2 bg-gray-100 rounded overflow-hidden transition-all duration-300 border border-gray-300 hover:border-primary hover:shadow-md;
     }
 
-    .product_img_wrapper{
+    .product_img_wrapper {
         @apply w-full aspect-square overflow-hidden bg-white;
     }
 
-    .product_content{
+    .product_content {
         @apply mx-2 my-3 grid gap-y-1;
     }
 
-    .product_title{
+    .product_title {
         @apply sm:text-lg font-semibold text-gray-800;
     }
 
-    .product_brand{
+    .product_brand {
         @apply text-sm text-gray-700 mb-5;
     }
 
-    .product_price{
+    .product_price {
         @apply text-2xl sm:text-3xl font-extrabold;
     }
 
-    .discount{
+    .discount {
         @apply flex gap-2 items-center;
     }
 
@@ -107,11 +111,11 @@
         @apply line-through;
     }
 
-    .discounted_percentage{
+    .discounted_percentage {
         @apply text-sm bg-primary px-3 rounded-xl;
     }
 
-    .ratings{
+    .ratings {
         @apply flex gap-1 items-end;
     }
 
@@ -119,7 +123,7 @@
         @apply text-yellow-500;
     }
 
-    .ratings_numbers{
+    .ratings_numbers {
         @apply text-xl mb-[-2px];
     }
 
@@ -127,78 +131,109 @@
         @apply text-gray-600 mb-5;
     }
 
-    .delivery_details{
+    .delivery_details {
         @apply max-xs:text-sm sm:flex sm:gap-1 sm:items-center;
     }
 
-    .delivery_details p{
+    .delivery_details p {
         @apply max-xs:text-sm text-lg font-medium;
     }
 
-    .delivery_details p > i{
+    .delivery_details p>i {
         @apply bg-primary p-1 rounded;
     }
 
-    .line-break-div{
-        @apply  border border-dashed border-gray-500 h-0 max-xs:mb-2 my-4;
+    .line-break-div {
+        @apply border border-dashed border-gray-500 h-0 max-xs:mb-2 my-4;
     }
 
-    .Change_text{
+    .Change_text {
         @apply max-xs:text-sm xs:text-lg font-medium mb-1 sm:ml-auto;
     }
 
-    .buttons{
-        @apply w-fit max-xs:flex  gap-2 xs:w-full xs:flex xs:justify-end;
+    .buttons {
+        @apply w-fit max-xs:flex gap-2 xs:w-full xs:flex xs:justify-end;
     }
-    
-    .delete_product_btn, .edit_product_btn{
+
+    .delete_product_btn,
+    .edit_product_btn {
         @apply max-xs:text-sm flex gap-1 bg-yellow-400 max-sm:p-[.3rem_.4rem] sm:p-[.3rem_1rem] rounded text-lg font-semibold transition-all duration-200 hover:shadow-md shadow-yellow-200;
     }
 
-    .delete_product_btn{
+    .delete_product_btn {
         @apply bg-red-400 hover:shadow-md shadow-red-200;
+    }
+
+    /* =================================== ADD/EDIT FORMS SECTION REUSABLE CLASSES ======================================== */
+    .input-field .form-control:first-child:not(#product_searchTags_field){
+        @apply max-md:mb-10;
+    }
+    .form-control input,
+    select {
+        @apply p-2 w-full focus:outline-none focus:ring-0;
+    }
+
+    .form-control select {
+        @apply w-[98%];
+    }
+
+    .category_div>div {
+        @apply w-fit flex items-center gap-2;
+    }
+
+    .selct_field {
+        @apply bg-white p-4 rounded-xl border border-gray-200;
+    }
+
+    .selct_field label {
+        @apply flex justify-between items-center;
+    }
+
+    .selct_field input {
+        @apply appearance-none size-6 bg-gray-200 rounded-md border-2 border-blue-400 transition-all duration-300 checked:bg-green-300 outline-0 ring-0;
     }
 
     /* =================================== LOADING CARDS REUSABLE CLASSES ======================================== */
 
-    .text_lines{
+    .text_lines {
         @apply h-7 rounded bg-gray-200 my-2 animate-pulse;
     }
 
-    .line-1{
+    .line-1 {
         @apply mt-4 w-[50%];
     }
 
-    .line-2{
+    .line-2 {
         @apply w-[70%];
     }
 
-    .line-3{
+    .line-3 {
         @apply w-[40%];
     }
 
-    .line-4{
+    .line-4 {
         @apply w-[30%];
     }
 
-    .line-5{
+    .line-5 {
         @apply mt-4 h-3 w-[90%];
     }
 
-    .search-input-lable > i{
+    .search-input-lable>i {
         @apply text-gray-400;
     }
 
-    #search-input, #search-input::placeholder{
+    #search-input,
+    #search-input::placeholder {
         @apply text-lg font-light text-gray-400;
     }
 
-    #search-input{
+    #search-input {
         @apply text-black;
     }
 
     /* =================================== FOOTER SECTION REUSABLE CLASSES ======================================== */
-    .social_link{
+    .social_link {
         @apply text-3xl text-gray-500 transition-colors hover:text-[#65DCD5] duration-200;
     }
 }
