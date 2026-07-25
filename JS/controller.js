@@ -5,8 +5,10 @@ import { isUiLoading, calculateDiscountPercentage, isFormLoading, restFrom } fro
 
 const state = {
     Loading: false,
-    allProducts: [],
     FromLoading: false,
+    deleteModalLoading: false,
+    allProducts: [],
+    current_product_edit_id: ''
 }
 
 const fetchDataController = async (url) => {
@@ -23,37 +25,72 @@ const searchController = (data) => {
     renderData(data);
 }
 
-const postDataController = async (data) => {
-    console.log(data);
-    const imageFile = data.product_image;
+const postDataController = async ({ data, isDataEdited }) => {
+    // console.log(data);
     //title, category, image_url, brand, ratings, rating_count, price, discounted_price, discount_percentage, stock, estimated_delivery_time, is_featured, search_tags;
     const newObject = {};
-    newObject.title = data.product_name;
-    newObject.category = data.product_category;
-    newObject.brand = data.brand_name;
-    newObject.ratings = data.product_ratings_in_decimal;
-    newObject.rating_count = data.product_ratings_count;
-    newObject.price = Number(data.product_price);
-    newObject.discounted_price = Number(data.product_discounted_price);
-    newObject.discount_percentage = calculateDiscountPercentage(data.product_price, data.product_discounted_price);
-    newObject.stock = data.product_stock;
-    newObject.estimated_delivery_time = data.product_delivery_time;
+    // id data.xyz filed is = ""; then return or newObject.xyzKey = data.xyz;
+    if (data.product_name || !data.product_name === '') {
+        newObject.title = data.product_name;
+    }
+    if (data.brand_name || !data.brand_name === '') {
+        newObject.brand = data.brand_name;
+    }
+    if (data.product_category || !data.product_category === '') {
+        newObject.category = data.product_category;
+    }
+    if (data.product_ratings_in_decimal || !data.product_ratings_in_decimal === '') {
+        newObject.ratings = data.product_ratings_in_decimal;
+    }
+    if (data.product_ratings_count || !data.product_ratings_count === '') {
+        newObject.rating_count = data.product_ratings_count;
+    }
+    if (data.product_price || !data.product_price === '') {
+        newObject.price = Number(data.product_price);
+    }
+    if (data.product_discounted_price || !data.product_discounted_price === '') {
+        newObject.discounted_price = Number(data.product_discounted_price);
+    }
+    if (data.product_price && data.product_discounted_price) {
+        newObject.discount_percentage = calculateDiscountPercentage(data.product_price, data.product_discounted_price);
+    }
+    if (data.product_stock || !data.product_stock === '') {
+        newObject.stock = data.product_stock;
+    }
+    if (data.product_delivery_time || !data.product_delivery_time === '') {
+        newObject.estimated_delivery_time = data.product_delivery_time;
+    }
     newObject.is_featured = false;
-    newObject.search_tags = data.product_tags.split(',').map(tag => tag.trim());
+    if (data.product_tags || !data.product_tags === '') {
+        newObject.search_tags = data.product_tags.split(',').map(tag => tag.trim());
+    }
 
     state.FromLoading = true;
     isFormLoading();
 
-    const imgUrl = await uploadToCloudinary(imageFile);
-    if (!imgUrl){
-        state.FromLoading = false; // set error state and show error ui
-        isFormLoading(); 
+    if (data.product_image && data.product_image.name !== '' && data.product_image.size !== 0) {
+        const imageFile = data.product_image;
+        const imgUrl = await uploadToCloudinary(imageFile);
+        if (!imgUrl){
+            state.FromLoading = false; // set error state and show error ui
+            isFormLoading(); 
 
-        restFrom(document.getElementById('add_product_form')); //reset forms
-        console.log('error cause is image upload')
-        return;
+            restFrom(document.getElementById('add_product_form')); //reset forms
+            console.log('error cause is image upload')
+            return;
+        }
+        newObject.image_url = imgUrl;
     }
+    // console.log(newObject)
 
-    newObject.image_url = imgUrl;
-    postData(newObject);
+    if (!isDataEdited) {
+        postData({ dataObject: newObject }); // Method will be POST 
+    } else {
+        const length = Object.keys(newObject).length;
+        if (length < 13) {
+            postData({ dataObject: newObject, method: 'PUT', dataId: state.current_product_edit_id });
+        } else if (length === 13) {
+            postData({ dataObject: newObject, method: 'PUT', dataId: state.current_product_edit_id });
+        }
+    }
 }

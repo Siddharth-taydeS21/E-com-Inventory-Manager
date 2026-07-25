@@ -1,4 +1,4 @@
-export { isUiLoading, debounce, removeErrorUis, removeActiveClasses, showErrorMsg, showSuccessMsg, reSetSuccessUi, reSetErrorUi, calculateDiscountPercentage, isFormLoading, restFrom, reFreshPage, resetEditForm };
+export { isUiLoading, debounce, removeErrorUis, removeActiveClasses, showErrorMsg, showSuccessMsg, reSetSuccessUi, reSetErrorUi, calculateDiscountPercentage, isFormLoading, restFrom, reFreshPage, resetEditForm, isDeleteModalLoading };
 import { state, fetchDataController } from "./controller.js";
 
 const productsSection = document.getElementById('products');
@@ -174,7 +174,7 @@ const restFrom = (form) => {
         reSetSuccessUi(input);
     })
 
-    document.querySelectorAll('form').forEach(form => form.reset())
+    document.querySelectorAll('form').forEach(formEl => formEl.reset())
 }
 
 // =========================== FORM LOADING/ERROR/SUCCESS STATES UI FUNCTION ============================
@@ -185,15 +185,33 @@ const isFormLoading = () => {
     if(state.FromLoading === true){
         document.querySelectorAll('.form-state-popup').forEach(popup => popup.close())
         formLoadingModal.showModal();
-        console.log('loading...')
+        // console.log('loading...')
     }else if(!state.FromLoading){
         document.querySelectorAll('.form-state-popup').forEach(popup => popup.close())
         formErrorModal.showModal();
-        console.log('error...!')
+        // console.log('error...!')
     }else if(state.FromLoading === 'success'){
         document.querySelectorAll('.form-state-popup').forEach(popup => popup.close())
         formSuccessModal.showModal();
-        console.log('success...!')
+        // console.log('success...!')
+    }
+}
+
+//// =========================== DELETE PRODUCT LOADING/ERROR/SUCCESS STATES UI FUNCTION ============================
+const deleteModalLoader = document.querySelector('.delete-modal-loader');
+const isDeleteModalLoading = () => {
+    if(state.deleteModalLoading === true){
+        document.querySelectorAll('.form-state-popup').forEach(popup => popup.close());
+        deleteModalLoader.showModal();
+    }
+    else if(!state.deleteModalLoading){
+        document.querySelectorAll('.form-state-popup').forEach(popup => popup.close());
+        formErrorModal.showModal();
+    }
+    else if(state.deleteModalLoading === 'success'){
+        document.querySelectorAll('.form-state-popup').forEach(popup => popup.close());
+        formSuccessModal.querySelector('.upload-msg small').textContent = 'Product data hs been deleted.'
+        formSuccessModal.showModal();
     }
 }
 

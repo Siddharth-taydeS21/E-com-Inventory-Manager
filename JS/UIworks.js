@@ -1,5 +1,5 @@
 import { state } from "./controller";
-import { resetEditForm, restFrom } from "./utils";
+import { resetEditForm, restFrom } from "./utils.js";
 export { renderData, renderEditProductForm };
 
 // ======================= PRIMARY RENDER FUNCTION ==============================
@@ -7,13 +7,7 @@ const productCardTemplate = document.getElementById('product_card_template');
 const productsCardsContainer = document.querySelector('.products_container');
 
 const renderData = (products) => {
-
-    if (products.length === 50) {
-        document.getElementById('category').textContent = 'All Products'
-    } else {
-        // if (products.length === 0) return;
-        document.getElementById('category').textContent = `${products[0].category} Products`
-    }
+    // document.getElementById('container_category').textContent = `All Products`;
     const productsLength = products.length;
     document.getElementById('product_count').textContent = productsLength;
 
@@ -57,6 +51,7 @@ const editProductFormContainer = document.getElementById('edit_product_form_cont
 const renderEditProductForm = (array, dataId) => {
     // remove previous edit fields
     resetEditForm(editProductFormContainer);
+    restFrom(editProductFormContainer.querySelector('form'));
     
 
     // if user closes the from OR he closes the form after making some changes, for this we have close form btn
@@ -102,18 +97,20 @@ const renderEditProductForm = (array, dataId) => {
 
     // if user selected only one field to edit 
     if (last2elms.length === 1) {
-        if (last2elms[0].className.includes('mb-15')) last2elms[0].classList.remove('mb-15');
+        if (last2elms[0].className.includes('mb-15')) last2elms[0].classList.replace('mb-15', 'mb-4');
     } else {
         const parent1 = last2elms[0].parentElement;
         const parent2 = last2elms[1].parentElement;
+        // console.log(parent1)
+        // console.log(parent2)
 
         // check if both's parent elements is same // check if both's parent elements is same 
         if (parent1 === parent2) { // if yes, remove both's margin bottom
-            if (last2elms[0].className.includes('mb-15')) last2elms[0].classList.remove('mb-15');
-            if (last2elms[1].className.includes('mb-15')) last2elms[1].classList.remove('mb-15');
+            if (last2elms[0].className.includes('mb-15')) last2elms[0].classList.replace('mb-15', 'mb-4');
+            if (last2elms[1].className.includes('mb-15')) last2elms[1].classList.replace('mb-15', 'mb-4');
             parent1.classList.add('md:grid-cols-2');
         } else { // if no, remove only last one's margin bottom  
-            if (last2elms[1].className.includes('mb-15')) last2elms[1].classList.remove('mb-15');
+            if (last2elms[1].className.includes('mb-15')) last2elms[1].classList.replace('mb-15', 'mb-4');
         }
     }
 

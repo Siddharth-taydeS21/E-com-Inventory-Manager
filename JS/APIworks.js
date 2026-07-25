@@ -1,5 +1,5 @@
-export { fetchData, postData, uploadToCloudinary };
-import { isUiLoading, isFormLoading, restFrom, reFreshPage } from "./utils";
+export { fetchData, postData, uploadToCloudinary, deleteData };
+import { isUiLoading, isFormLoading, restFrom, reFreshPage, isDeleteModalLoading } from "./utils";
 import { state } from "./controller.js";
 
 const fetchData = async (url) => {
@@ -53,7 +53,7 @@ const uploadToCloudinary = async (file) => {
     data.append('upload_preset', 'upload_preset_for_Cloudinary');
     data.append('cloud_name', 'bunnur7c');
 
-    try{
+    try {
         const res = await fetch(`https://api.cloudinary.com/v1_1/bunnur7c/image/upload`,
             {
                 method: 'POST',
@@ -61,7 +61,7 @@ const uploadToCloudinary = async (file) => {
             }
         )
 
-        if(!res.ok){
+        if (!res.ok) {
             URL = false;
             return;
         }
@@ -69,7 +69,7 @@ const uploadToCloudinary = async (file) => {
         const HostedImageData = await res.json();
         URL = HostedImageData.url;
 
-    }catch(error){
+    } catch (error) {
         console.log(error)
         URL = false;
     }
@@ -77,7 +77,7 @@ const uploadToCloudinary = async (file) => {
     return URL;
 }
 
-const postData = async (dataObject, method, dataId) => {
+const postData = async ({ dataObject, method, dataId }) => {
     // console.log(dataObject)
     if (!method && !dataId) {
         // state.FromLoading = true;
@@ -94,10 +94,11 @@ const postData = async (dataObject, method, dataId) => {
                 state.FromLoading = false;
                 isFormLoading();
                 restFrom(document.getElementById('add_product_form'))
+                return;
             }
 
             const data = await res.json();
-            console.log(data);
+            // console.log(data);
             restFrom(document.getElementById('add_product_form'));
 
             state.FromLoading = 'success';
@@ -109,5 +110,62 @@ const postData = async (dataObject, method, dataId) => {
             isFormLoading();
             restFrom(document.getElementById('add_product_form'))
         }
+    }
+
+    if (dataObject && method && dataId) {
+        try {
+            const res = await fetch(`https://6a50c67ec576c846dcb9db29.mockapi.io/SiddsOwnRestApi/products/${dataId}`, {
+                method: `${method}`,
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify(dataObject)
+            })
+
+            if (!res.ok) {
+                state.FromLoading = false;
+                isFormLoading();
+                restFrom(document.getElementById('edit_product_form'))
+                return;
+            }
+
+            const data = await res.json();
+            // console.log(data);
+            restFrom(document.getElementById('edit_product_form'));
+
+            state.FromLoading = 'success';
+            isFormLoading();
+            reFreshPage();
+
+        } catch (error) {
+            state.FromLoading = false;
+            isFormLoading();
+            restFrom(document.getElementById('edit_product_form'))
+        }
+    }
+}
+
+const deleteData = async (dataId) => {
+    state.deleteModalLoading = true;
+    isDeleteModalLoading();
+    try {
+        const res = await fetch(`https://6a50c67ec576c846dcb9db29.mockapi.io/SiddsOwnRestApi/products/${dataId}`, {
+            method: 'DELETE'
+        })
+
+        if (!res.ok) {
+            state.deleteModalLoading = false;
+            isDeleteModalLoading();
+            return;
+        }
+
+        const data = await res.json();
+        // console.log(data);
+
+        state.deleteModalLoading = 'success';
+        isDeleteModalLoading();
+        reFreshPage();
+
+    } catch (error) {
+        state.deleteModalLoading = false;
+        isDeleteModalLoading();
     }
 }
