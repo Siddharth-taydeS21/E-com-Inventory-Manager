@@ -7,7 +7,7 @@ const productCardTemplate = document.getElementById('product_card_template');
 const productsCardsContainer = document.querySelector('.products_container');
 
 const renderData = (products) => {
-    // document.getElementById('container_category').textContent = `All Products`;
+    document.getElementById('container_category').textContent = `${products[0].category} Products`;
     const productsLength = products.length;
     document.getElementById('product_count').textContent = productsLength;
 
@@ -63,7 +63,6 @@ const renderEditProductForm = (array, dataId) => {
         restFrom(editProductFormContainer); // reset edit form inputs
     })
 
-    // console.log(array);
     // get product Information
     const productInfo = state.allProducts.find(product => product.id === dataId);
     const productNameElem = editProductFormContainer.querySelector('.product-info-title  span');
@@ -89,7 +88,6 @@ const renderEditProductForm = (array, dataId) => {
         } else if (fieldsArray.some(el => el.className.includes('hidden'))) { // if one element in the input field is hidden it means user selected 1 elements, change layout to grid-col-1
             filed.classList.remove('md:grid-cols-2');
         }
-        // console.log(fieldsArray)
     })
 
     const newArr = Array.from(editProductFormContainer.querySelectorAll('.form-control')).filter(el => !el.className.includes('hidden')); // select all .form-control elements who don't has the class hidden
@@ -101,8 +99,6 @@ const renderEditProductForm = (array, dataId) => {
     } else {
         const parent1 = last2elms[0].parentElement;
         const parent2 = last2elms[1].parentElement;
-        // console.log(parent1)
-        // console.log(parent2)
 
         // check if both's parent elements is same // check if both's parent elements is same 
         if (parent1 === parent2) { // if yes, remove both's margin bottom

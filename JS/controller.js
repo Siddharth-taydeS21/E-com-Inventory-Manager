@@ -76,12 +76,10 @@ const postDataController = async ({ data, isDataEdited }) => {
             isFormLoading(); 
 
             restFrom(document.getElementById('add_product_form')); //reset forms
-            console.log('error cause is image upload')
             return;
         }
         newObject.image_url = imgUrl;
     }
-    // console.log(newObject)
 
     if (!isDataEdited) {
         postData({ dataObject: newObject }); // Method will be POST 

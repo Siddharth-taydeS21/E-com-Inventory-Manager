@@ -83,6 +83,11 @@ searchInput.addEventListener('input', (e) => {
     debounceSearch(e.target.value)
 });
 
+searchInput.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter') return;
+    debounceSearch(e.target.value)
+});
+
 // ====================================== ADD PRODUCT FORM VALIDATION TRIGGER LOGIC ========================================
 const addProductFromContainer = document.getElementById('add_product_form_container');
 const addProductFrom = document.getElementById('add_product_form');
@@ -103,7 +108,6 @@ productContainer.addEventListener('click', (e) => {
     const btn = e.target.closest('.edit_product_btn');
     if (!e.target.className.includes('edit_product_btn') && (!e.target.parentElement.className.includes('edit_product_btn') && !e.target.className.includes('ri-pencil-fill'))) return;
     const productInfo = state.allProducts.find(product => product.id === btn.dataset.editId)
-    // console.log(productInfo);
     const productNameElem = selectEditFieldsModal.querySelector('.product-info-title  span');
     const productName = productInfo.title;
     const productId = productInfo.id;
@@ -125,7 +129,6 @@ selectFiledSubmitBtn.addEventListener('click', () => {
     const selectForm = document.getElementById('select_edit_fields_form');
     const selectedFields = selectForm.querySelectorAll('input[type="checkbox"]:checked');
     if (selectedFields.length === 0) {
-        console.log('please select something');
         selectFiledErrorMsg.classList.remove('hidden');
         return;
     }
@@ -146,10 +149,6 @@ selectFiledSubmitBtn.addEventListener('click', () => {
     // send fields array to the UI form render function
     renderEditProductForm(newFieldsArray, selectFiledSubmitBtn.dataset.editId);
     selectEditFieldsModal.close();
-
-    // if(!selectedFields){
-    //     console.log('please select something')
-    // }
 })
 
 // ===================== FULL EDIT THE PRODUCT BUTTON LOGIC =======================
@@ -176,7 +175,6 @@ editProductForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const dataObject = validateFrom(editProductFromContainer);
     if (!dataObject) return;
-    // console.log(dataObject)
     postDataController({ data: dataObject, isDataEdited: true });
 })
 
@@ -189,7 +187,6 @@ productContainer.addEventListener('click', (e) => {
     const btn = e.target.closest('.delete_product_btn');
     if (!e.target.className.includes('delete_product_btn') && (!e.target.parentElement.className.includes('delete_product_btn') && !e.target.className.includes('ri-delete-bin-line'))) return;
     const productInfo = state.allProducts.find(product => product.id === btn.dataset.deleteId)
-    // console.log(productInfo);
     const productName = productInfo.title;
     product_namePreviewEl.textContent = productName;
 

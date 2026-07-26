@@ -1,6 +1,7 @@
 export { validateFrom };
 import { showErrorMsg, showSuccessMsg } from "./utils.js";
 
+// ===================================== PRIMARY FORM VALIDATION FUNCTION FOR FORMS ====================================
 const validateFrom = (FormContainer) => {
     // ========= SELECTING ALL INPUTS TO VALIDATE FIRST ==========
     const productNameInput = FormContainer.querySelector('#product_name');
@@ -169,18 +170,9 @@ const validateFrom = (FormContainer) => {
     }
 
     //product tags input validation
-    const tagRegex = /^[^,\s]+(\s*,\s*[^,\s]+)*$/;
-    const maxSevenRegex = /^(?:[^,\s]+(?:\s*,\s*[^,\s]+){6,})$/;
+    const maxSevenRegex = /^\s*[a-zA-Z0-9]+(?:\s+[a-zA-Z0-9]+)*(?:\s*,\s*[a-zA-Z0-9]+(?:\s+[a-zA-Z0-9]+)*){6,}\s*$/;
 
     if (!tagsInput.parentElement.className.includes('hidden')) {
-        if (tagRegex.test(tagsInput.value)) {
-            showSuccessMsg(tagsInput.parentElement);
-            validateTags = true;
-        } else {
-            showErrorMsg(tagsInput.parentElement, 'Invalid format, required format-(e.g. tag1, tag2)');
-            validateTags = false;
-        }
-
         if (maxSevenRegex.test(tagsInput.value)) {
             showSuccessMsg(tagsInput.parentElement);
             validateTags = true;

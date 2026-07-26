@@ -244,7 +244,7 @@
             </div>
         </section>
 
-        <section id="add_edit_products" class="bg-gray-100">
+        <section id="add_edit_products" class="bg-gray-100 relative">
             <div class="container bg-white rounded-md border border-gray-200" id="add_product_form_container">
                 <div class="section_header p-2 flex justify-start items-center gap-2">
                     <div
@@ -297,7 +297,8 @@
                             </p>
                             <label for="add_product_form_product_image_input"
                                 class="product_image_label block w-full h-full border-2 border-dashed border-gray-300 rounded ">
-                                <input type="file" id="add_product_form_product_image_input" name="product_image" class="h-full" hidden>
+                                <input type="file" id="add_product_form_product_image_input" name="product_image"
+                                    class="h-full" hidden>
                                 <div
                                     class="upload-icon-div absolute top-[50%] translate-y-[-50%] left-0 w-full grid text-center z-20">
                                     <div
@@ -309,7 +310,8 @@
                                         Or drag and drop the image
                                         <small>(Max file size 10MB)</small>
                                     </p>
-                                    <h1 class="add-product-img-success-preview-elem success-elem text-sm font-semibold mt-2 hidden">
+                                    <h1
+                                        class="add-product-img-success-preview-elem success-elem text-sm font-semibold mt-2 hidden">
                                         Image File selected✅: <br>
                                         <span class="selected_img_file text-sm font-normal"></span>
                                     </h1>
@@ -521,7 +523,8 @@
 
             </div>
 
-            <div class="container hidden bg-white rounded-md border border-gray-200 relative" id="edit_product_form_container">
+            <div class="container hidden bg-white rounded-md border border-gray-200 relative"
+                id="edit_product_form_container">
                 <button class="edit-form-close-btn absolute top-4 right-4">
                     <i class="ri-close-line text-3xl"></i>
                 </button>
@@ -546,7 +549,8 @@
                     <div class="input-field names_field grid gap-4 md:grid-cols-2">
                         <div class="form-control hidden w-full border border-gray-300 rounded relative mb-15"
                             id="product_name_filed">
-                            <label class="absolute -top-8 left-0 font-semibold text-lg" for="product_name">Change Product
+                            <label class="absolute -top-8 left-0 font-semibold text-lg" for="product_name">Change
+                                Product
                                 name</label>
                             <input type="text" id="product_name" name="product_name" placeholder="Enter Product name">
                             <span
@@ -576,11 +580,13 @@
                     <div class="input-field image_field_catagory_filed grid gap-4 md:grid-cols-2">
                         <div class="form-control hidden w-full border border-gray-300 rounded relative mb-15 h-55 p-2"
                             id="product_image_filed">
-                            <p class="product_image_title absolute -top-8 left-0 font-semibold text-lg">Change Product Image
+                            <p class="product_image_title absolute -top-8 left-0 font-semibold text-lg">Change Product
+                                Image
                             </p>
                             <label for="edit_product_form_product_image_input"
                                 class="product_image_label block w-full h-full border-2 border-dashed border-gray-300 rounded ">
-                                <input type="file" id="edit_product_form_product_image_input" name="product_image" class="h-full" hidden>
+                                <input type="file" id="edit_product_form_product_image_input" name="product_image"
+                                    class="h-full" hidden>
                                 <div
                                     class="upload-icon-div absolute top-[50%] translate-y-[-50%] left-0 w-full grid text-center z-20">
                                     <div
@@ -588,11 +594,12 @@
                                         <i class="ri-upload-2-line text-2xl text-primary"></i>
                                     </div>
                                     <h1>Click to Upload image</h1>
-                                 <p class="text-sm flex justify-center items-end gap-1">
+                                    <p class="text-sm flex justify-center items-end gap-1">
                                         Or drag and drop the image
                                         <small>(Max file size 10MB)</small>
                                     </p>
-                                    <h1 class="edit-product-img-success-preview-elem success-elem text-sm font-semibold mt-2 hidden">
+                                    <h1
+                                        class="edit-product-img-success-preview-elem success-elem text-sm font-semibold mt-2 hidden">
                                         Image File selected✅: <br>
                                         <span class="selected_img_file text-sm font-normal"></span>
                                     </h1>
@@ -610,7 +617,8 @@
 
                         <div class="form-control hidden w-full border h-fit border-gray-300 rounded relative mb-15"
                             id="product_category_filed">
-                            <label class="absolute -top-8 left-0 font-semibold text-lg" for="product_category">Change Product
+                            <label class="absolute -top-8 left-0 font-semibold text-lg" for="product_category">Change
+                                Product
                                 Category</label>
                             <div class="category_div grid gap-4 max-md:gap-2 md:gap-4 p-4">
                                 <div>
@@ -696,7 +704,8 @@
                     <div class="input-field price_field grid gap-4 md:grid-cols-2">
                         <div class="form-control hidden w-full border border-gray-300 rounded relative mb-15"
                             id="product_price_filed">
-                            <label class="absolute -top-8 left-0 font-semibold text-lg" for="product_price">Update Product
+                            <label class="absolute -top-8 left-0 font-semibold text-lg" for="product_price">Update
+                                Product
                                 price</label>
                             <input type="number" name="product_price" id="product_price"
                                 placeholder="Enter product price">
@@ -728,7 +737,8 @@
                     <div class="input-field stock_delivery_field grid gap-4 md:grid-cols-2">
                         <div class="form-control hidden w-full border border-gray-300 rounded relative mb-15"
                             id="product_stock_filed">
-                            <label class="absolute -top-8 left-0 font-semibold text-lg" for="product_stock">Update Product
+                            <label class="absolute -top-8 left-0 font-semibold text-lg" for="product_stock">Update
+                                Product
                                 Stock</label>
                             <input type="number" name="product_stock" id="product_stock"
                                 placeholder="Enter product stock">
@@ -808,7 +818,7 @@
         </section>
 
         <dialog id="form_loading_modal"
-            class="form-state-popup h-[35%] md:h-[40%] w-75 md:w-85 rounded-lg border border-green-100 bg-white-300 shadow-xl justify-center fixed top-0 left-0 right-0 bottom-0 m-auto backdrop:bg-[rgba(0,0,0,0.4)] backdrop:backdrop-blur-[1px] focus:outline-0 focus:ring-0">
+            class="form-state-popup h-[35%] md:h-[40%] w-75 md:w-85 rounded-lg border border-green-100 bg-white-300 shadow-xl justify-center fixed top-0 left-0 right-0 bottom-0 m-auto focus:outline-0 focus:ring-0 backdrop:bg-black/0 backdrop:backdrop-blur-0 opacity-0 scale-90 starting:open:opacity-0 starting:open:scale-90 transition-all transition-discrete duration-300 open:opacity-100 open:scale-100 starting:open:backdrop:bg-black/0 starting:open:backdrop:backdrop-blur-0 backdrop:transition-all backdrop:transition-discrete backdrop:duration-300 open:backdrop:bg-black/40 open:backdrop:backdrop-blur-[1px]">
             <div
                 class="size-28 my-10 rounded-full border-3 border-b-green-100 border-l-green-100 border-r-green-100 border-t-green-500 flex justify-center items-center justify-self-center animate-spin">
                 <div class="size-17 bg-green-200 rounded-full flex justify-center items-center"></div>
@@ -818,8 +828,9 @@
             <p class="upload-msg font-semibold text-center text-xl">UploadIng product data <br> to the server...</p>
         </dialog>
 
-        <dialog id="form_loading_modal"
-            class="form-state-popup delete-modal-loader h-[35%] md:h-[40%] w-75 md:w-85 rounded-lg border border-green-100 bg-white-300 shadow-xl justify-center fixed top-0 left-0 right-0 bottom-0 m-auto backdrop:bg-[rgba(0,0,0,0.4)] backdrop:backdrop-blur-[1px] focus:outline-0 focus:ring-0">
+        <dialog
+            class="form-state-popup delete-modal-loader h-[35%] md:h-[40%] w-75 md:w-85 rounded-lg border border-green-100 bg-white-300 shadow-xl justify-center fixed top-0 left-0 right-0 bottom-0 m-auto focus:outline-0 focus:ring-0 backdrop:bg-black/0 backdrop:backdrop-blur-0 opacity-0 scale-90 starting:open:opacity-0 starting:open:scale-90 transition-all transition-discrete duration-300 open:opacity-100 open:scale-100 starting:open:backdrop:bg-black/0 starting:open:backdrop:backdrop-blur-0 backdrop:transition-all backdrop:transition-discrete backdrop:duration-300 open:backdrop:bg-black/40 open:backdrop:backdrop-blur-[1px]"
+            id="form_loading_modal">
             <div
                 class="size-28 my-10 rounded-full border-3 border-b-red-50 border-l-red-50 border-r-red-50 border-t-red-300 flex justify-center items-center justify-self-center animate-spin">
                 <div class="size-17 bg-red-200 rounded-full flex justify-center items-center"></div>
@@ -827,10 +838,10 @@
             <i
                 class="ri-delete-bin-line absolute left-[50%] translate-x-[-50%] top-19 text-3xl font-bold red-green-500"></i>
             <p class="upload-msg font-semibold text-center text-xl">Loading...</p>
-        </dialog>
+        </dialog> 
 
         <dialog id="form_success_modal"
-            class="form-state-popup h-[35%] md:h-[40%] w-75 md:w-85 rounded-lg border border-green-100 bg-white-300 shadow-xl justify-center fixed top-0 left-0 right-0 bottom-0 m-auto backdrop:bg-[rgba(0,0,0,0.4)] backdrop:backdrop-blur-[1px] focus:outline-0 focus:ring-0">
+            class="form-state-popup h-[35%] md:h-[40%] w-75 md:w-85 rounded-lg border border-green-100 bg-white-300 shadow-xl justify-center fixed top-0 left-0 right-0 bottom-0 m-auto focus:outline-0 focus:ring-0 backdrop:bg-black/0 backdrop:backdrop-blur-0 opacity-0 scale-90 starting:open:opacity-0 starting:open:scale-90 transition-all transition-discrete duration-300 open:opacity-100 open:scale-100 starting:open:backdrop:bg-black/0 starting:open:backdrop:backdrop-blur-0 backdrop:transition-all backdrop:transition-discrete backdrop:duration-300 open:backdrop:bg-black/40 open:backdrop:backdrop-blur-[1px]">
             <div
                 class="size-28 mt-10 mb-7 rounded-full border-3 border-green-200 flex justify-center items-center justify-self-center">
                 <div class="size-17 bg-green-200 rounded-full flex justify-center items-center"></div>
@@ -846,7 +857,7 @@
         </dialog>
 
         <dialog id="form_error_modal"
-            class="form-state-popup h-[35%] md:h-[40%] w-75 md:w-85 rounded-lg border border-red-100 bg-white-300 shadow-xl justify-center fixed top-0 left-0 right-0 bottom-0 m-auto backdrop:bg-[rgba(0,0,0,0.4)] backdrop:backdrop-blur-[1px] focus:outline-0 focus:ring-0">
+            class="form-state-popup h-[35%] md:h-[40%] w-75 md:w-85 rounded-lg border border-red-100 bg-white-300 shadow-xl justify-center fixed top-0 left-0 right-0 bottom-0 m-auto focus:outline-0 focus:ring-0 backdrop:bg-black/0 backdrop:backdrop-blur-0 opacity-0 scale-90 starting:open:opacity-0 starting:open:scale-90 transition-all transition-discrete duration-300 open:opacity-100 open:scale-100 starting:open:backdrop:bg-black/0 starting:open:backdrop:backdrop-blur-0 backdrop:transition-all backdrop:transition-discrete backdrop:duration-300 open:backdrop:bg-black/40 open:backdrop:backdrop-blur-[1px]">
             <div
                 class="size-28 mt-10 mb-7 rounded-full border-3 border-red-200 flex justify-center items-center justify-self-center">
                 <div class="size-17 bg-red-200 rounded-full flex justify-center items-center"></div>
@@ -863,23 +874,26 @@
         </dialog>
 
         <dialog id="delete_confirmation_modal"
-            class="h-78 w-75 md:w-85 rounded-lg border border-red-100 bg-white-300 shadow-xl justify-center fixed top-0 left-0 right-0 bottom-0 m-auto backdrop:bg-[rgba(0,0,0,0.4)] backdrop:backdrop-blur-[1px] focus:outline-0 focus:ring-0">
-            <div class="mt-10 justify-self-center"><i class="ri-delete-bin-6-line text-7xl text-red-400 justify-self-center"></i></div>
+            class="h-78 w-75 md:w-85 rounded-lg border border-red-100 bg-white-300 shadow-xl justify-center fixed top-0 left-0 right-0 bottom-0 m-auto focus:outline-0 focus:ring-0 backdrop:bg-black/0 backdrop:backdrop-blur-0 opacity-0 scale-90 starting:open:opacity-0 starting:open:scale-90 transition-all transition-discrete duration-300 open:opacity-100 open:scale-100 starting:open:backdrop:bg-black/0 starting:open:backdrop:backdrop-blur-0 backdrop:transition-all backdrop:transition-discrete backdrop:duration-300 open:backdrop:bg-black/40 open:backdrop:backdrop-blur-[1px]">
+            <div class="mt-10 justify-self-center"><i
+                    class="ri-delete-bin-6-line text-7xl text-red-400 justify-self-center"></i></div>
             <h1 class="text-xl font-semibold mt-8 justify-self-center">Delete Product?</h1>
             <p class="text-sm text-gray-500 text-center mt-2">Are sure you want to delete this product: </p>
             <span class="product-name-preview text-lg font-semibold block text-center">OnePlus 6t</span>
             <div class="modal_button w-full flex justify-center gap-4  mt-4 items-center">
-                <button class="cancel-btn p-[.5rem_1rem] font-semibold rounded border border-gray-200 shadow-sm transition-shadow duration-300 hover:shadow-md">
+                <button
+                    class="cancel-btn p-[.5rem_1rem] font-semibold rounded border border-gray-200 shadow-sm transition-shadow duration-300 hover:shadow-md">
                     No, Cancel
                 </button>
-                <button class="confirm-delete-btn p-[.5rem_1rem] rounded shadow-sm shadow-red-300 transition-shadow duration-300 hover:shadow-md bg-red-400 text-white font-bold">
+                <button
+                    class="confirm-delete-btn p-[.5rem_1rem] rounded shadow-sm shadow-red-300 transition-shadow duration-300 hover:shadow-md bg-red-400 text-white font-bold">
                     Yes, Delete
                 </button>
             </div>
         </dialog>
 
         <dialog id="select_edit_filed_modal"
-            class="w-full max-w-6xl p-2 xs:p-4 bg-gray-100 rounded xs:rounded-xl border border-gray-300 fixed top-0 left-0 right-0 bottom-0 m-auto backdrop:bg-[rgba(0,0,0,0.4)] backdrop:backdrop-blur-[1px] focus:outline-0 focus:ring-0">
+            class="w-full max-w-6xl p-2 xs:p-4 bg-gray-100 rounded xs:rounded-xl border border-gray-300 fixed top-0 left-0 right-0 bottom-0 m-auto focus:outline-0 focus:ring-0 backdrop:bg-black/0 backdrop:backdrop-blur-0 opacity-0 scale-90 starting:open:opacity-0 starting:open:scale-90 transition-all transition-discrete duration-300 open:opacity-100 open:scale-100 starting:open:backdrop:bg-black/0 starting:open:backdrop:backdrop-blur-0 backdrop:transition-all backdrop:transition-discrete backdrop:duration-300 open:backdrop:bg-black/40 open:backdrop:backdrop-blur-[1px]">
             <button class="close-modal absolute top-4 right-4">
                 <i class="ri-close-line text-3xl"></i>
             </button>
@@ -902,13 +916,13 @@
             <div class="edit_options grid gap-2 xs:gap-4 md:grid-cols-[1fr_10px_1fr] my-4 items-center">
                 <button
                     class="options focus:outline-0 focus:ring-0 bg-white p-3 rounded-xl border-2 border-gray-400 flex justify-center items-center gap-2 transition-shadow duration-200 shadow-2xs hover:shadow-md">
-                    <p class="text-md xs:text-xl font-semibold">Select the fields you want to edit</p>
+                    <p class="text-md xs:text-lg lg:text-xl font-semibold">Select the fields you want to edit</p>
                     <i class="ri-arrow-down-double-fill text-md xs:text-xl font-bold"></i>
                 </button>
                 <p class="justify-self-center">or</p>
                 <button
                     class="full_edit_btn focus:outline-0 focus:ring-0 bg-white p-3 rounded-xl border-2 border-gray-400 flex justify-center items-center gap-2 transition-shadow duration-200 shadow-2xs hover:shadow-md">
-                    <p class="text-md xs:text-xl font-semibold">Full edit the product</p>
+                    <p class="text-md xs:text-lg lg:text-xl font-semibold">Full edit the product</p>
                     <i class="ri-arrow-right-double-fill text-md xs:text-xl font-bold"></i>
                 </button>
             </div>
@@ -1004,7 +1018,8 @@
                 </form>
                 <hr class="text-gray-300 my-4">
                 <div class="submit-btn-div w-full flex justify-end items-center">
-                    <p class="select-filed-error-msg hidden w-[60%] mr-auto text-sm md:text-lg lg:text-lg text-red-400">Please select something from the form to move foreword*</p>
+                    <p class="select-filed-error-msg hidden w-[60%] mr-auto text-sm md:text-lg lg:text-lg text-red-400">
+                        Please select something from the form to move foreword*</p>
                     <button id="submit_select_form"
                         class="p-[.5rem_1rem] text-primary rounded text-xl transition-all duration-400 border shadow-sm border-gray-200 hover:shadow-md">
                         Next

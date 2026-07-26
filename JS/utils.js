@@ -39,7 +39,7 @@ const isUiLoading = () => {
         })
 
         categoryDetailsElement.innerHTML += `
-            <div class="spinner size-[22px] border-3 border-gray-100 border-t-gray-300 border-l-gray-300 rounded-full animate-spin"></div>
+            <div class="spinner size-5.5 border-3 border-gray-100 border-t-gray-300 border-l-gray-300 rounded-full animate-spin"></div>
             <p class="loading_text">Loading...</p>
         `;
 
@@ -58,7 +58,7 @@ const isUiLoading = () => {
 
         MainContainer.append(errorCard);
         document.getElementById('product_count').textContent = '...';
-        document.getElementById('category').textContent = 'No Products';
+        document.getElementById('container_category').textContent = 'No Products';
     }
     else if (state.Loading === 'error') {
         //if container already has previous error cards
