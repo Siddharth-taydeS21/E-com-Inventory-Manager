@@ -56,7 +56,7 @@ const searchInput = document.getElementById('search-input');
 
 const debounceSearch = debounce((text) => {
     if (text.trim() === '') return;
-    const keyWord = text.toLowerCase();
+    const keyWord = text.trim().toLowerCase();
 
     const searchResults = [];
 

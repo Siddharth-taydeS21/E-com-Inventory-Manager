@@ -1,5 +1,5 @@
 export { fetchData, postData, uploadToCloudinary, deleteData };
-import { isUiLoading, isFormLoading, restFrom, reFreshPage, isDeleteModalLoading } from "./utils";
+import { isUiLoading, isFormLoading, restFrom, reFreshPage, isDeleteModalLoading } from "./utils.js";
 import { state } from "./controller.js";
 
 const fetchData = async (url) => {
