@@ -7,7 +7,11 @@ const productCardTemplate = document.getElementById('product_card_template');
 const productsCardsContainer = document.querySelector('.products_container');
 
 const renderData = (products) => {
-    document.getElementById('container_category').textContent = `${products[0].category} Products`;
+    if(products.length > 40){
+        document.getElementById('container_category').textContent = `All Products`;
+    }else{
+        document.getElementById('container_category').textContent = `${products[0].category} Products`;
+    }
     const productsLength = products.length;
     document.getElementById('product_count').textContent = productsLength;
 
